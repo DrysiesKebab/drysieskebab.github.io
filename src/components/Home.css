@@ -1,0 +1,10 @@
+.item-box {
+    border: 1px solid;
+    width: 20%;
+    border-radius: 12px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    border-color: aliceblue;
+    margin-right: 5%;
+}
