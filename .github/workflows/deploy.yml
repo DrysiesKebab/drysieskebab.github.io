@@ -1,27 +1,40 @@
-name: Deploy to GitHub Pages
+# .github/workflows/deploy.yml
+name: Deploy CRA to GitHub Pages
+
 on:
   push:
-    branches: [ main ]   # change if your default is 'master'
+    branches: [ main ]   # change if your default branch is 'master'
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: "pages"
   cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+
       - run: npm ci
+
       - run: npm run build
+        env:
+          CI: ""   # or: CI: "false"
+
+      # For Create React App the build output is ./build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./build
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
