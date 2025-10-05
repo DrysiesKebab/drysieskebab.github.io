@@ -16,14 +16,14 @@ const menu: {
   "HSP (Snack Pack)": {
     img: "/images/hsp.webp",
     desc: "Halal Snack Pack with crunchy chips, falafel or meat and your choice of sauce.",
-    price: "Small $15 | Large $18 | Jumbo $22",
+    price: "Small $15 | Large $18 | Jumbo $24",
   },
   
   // Meat Box
   "Chicken/Lamb/Mix Meat Box": {
     img: "/images/meatbox.jpeg",
     desc: "Choice of meat topped with sauce and salad.",
-    price: "Small $18 | Large $22",
+    price: "Small $25 | Large $32",
   },
   
   // Rice Bowl
@@ -51,13 +51,13 @@ const menu: {
   "Spinach Fetta Cheese Gozleme": {
     img: "https://just-eat-prod-sg-res.cloudinary.com/image/upload/c_fill,q_auto,ar_4:3,c_thumb,w_120/f_auto/q_auto/dpr_2.0/v1/au/dishes/11059574/642a494279d8f0163eb6e991f5863f7e",
     desc: "Crispy Turkish flatbread stuffed with spinach and feta cheese.",
-    price: "$22",
+    price: "$19",
   },
 
   "Chicken & Cheese Gozleme": {
     img: "https://just-eat-prod-sg-res.cloudinary.com/image/upload/c_fill,q_auto,ar_4:3,c_thumb,w_120/f_auto/q_auto/dpr_2.0/v1/au/dishes/11059574/642a494279d8f0163eb6e991f5863f7e",
     desc: "Turkish flatbread filled with chicken and cheese.",
-    price: "Full $26",
+    price: "Full $19",
   },
 
   // Sides
@@ -80,7 +80,7 @@ const menu: {
   "Onion Rings": {
     img: "https://tb-static.uber.com/prod/image-proc/processed_images/1bc159b238f724ef92e25e720598ae7c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg",
     desc: "Crispy golden onion rings.",
-    price: "$8",
+    price: "Small $8 | Large $10",
   },
   "Jalapeno Bites": {
     img: "",
@@ -100,7 +100,7 @@ const menu: {
   "Trio Dip":{
     img: "https://tb-static.uber.com/prod/image-proc/processed_images/82162a56b274ba10ea4314d1dc079249/58f691da9eaef86b0b51f9b2c483fe63.jpeg",
     desc: "Turkish bread served with 3 dips of choice",
-    price: "$15",
+    price: "$12",
   },
 
   // Drinks
