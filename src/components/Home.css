@@ -8,3 +8,27 @@
     border-color: aliceblue;
     margin-right: 5%;
 }
+
+@media (max-width: 640px) {
+  .menu-item {
+    max-height: 120px;
+    overflow: hidden;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.35s ease-out;
+}

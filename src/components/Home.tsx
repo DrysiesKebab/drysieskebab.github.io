@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import menu from '../resources/menu';
 import './Home.css';
 import ItemPopup from './ItemPopup';
+import CallPopup from './CallPopup';
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [showCallPopup, setShowCallPopup] = useState(false);
   const [selectedItem, setSelectedItem] = useState<string>('');
 
   // Phone number for ordering
@@ -18,15 +20,21 @@ const Home = () => {
       {/* Top Call to Action */}
       <div
         style={{ backgroundColor: '#162836' }}
-        className="w-full p-4 flex justify-center md:justify-between items-center sticky top-0 z-50"
+        className="w-full p-4 flex justify-between md:justify-between items-center sticky top-0 z-50"
       >
         <h1 className="text-lg md:text-xl font-bold">Drysies Kebabs</h1>
-        <a
+        <button onClick={() => setShowCallPopup(true)}
+          className="bg-orange-500 hover:bg-orange-400 text-white px-4 py-2 rounded-lg font-semibold"
+        >
+          📞 Call to Order
+          
+        </button>
+        {/* <a
           href={`tel:${phoneNumber}`}
           className="bg-orange-500 hover:bg-orange-400 text-white px-4 py-2 rounded-lg font-semibold"
         >
           📞 Call to Order
-        </a>
+        </a> */}
       </div>
 
       {/* Hero Section */}
@@ -46,43 +54,46 @@ const Home = () => {
       </div>
 
       {/* Menu Section */}
-      <div className="max-w-6xl px-6 py-10 w-full">
-        <h2 className="text-2xl font-bold text-orange-600 mb-6 text-center">
-          Menu
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {Object.keys(menu).map((itemName: string) => (
-            <div
-              key={itemName}
-              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition flex"
-              onClick={() => {
-                setSelectedItem(itemName);
-                setShowPopup(true);
-              }}
-            >
-              {/* Left side: Name & description */}
-              <div className="p-4 flex-1 text-left flex flex-col justify-center">
-                <h3 className="text-xl font-bold text-orange-600">
-                  {itemName}
-                </h3>
-                <p className="text-gray-700">{menu[itemName].desc}</p>
-                <p className="mt-2 font-semibold text-black">
-                  {menu[itemName].price}
-                </p>
-              </div>
+      <div className="max-w-6xl px-4 sm:px-6 py-10 w-full">
+  <h2 className="text-2xl font-bold text-orange-600 mb-6 text-center">
+    Menu
+  </h2>
 
-              {/* Right side: Image */}
-              <div className="p-4 flex-shrink-0">
-                <img
-                  className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-lg"
-                  src={menu[itemName].img}
-                  alt={itemName}
-                />
-              </div>
-            </div>
-          ))}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+    {Object.keys(menu).map((itemName: string) => (
+      <div
+        key={itemName}
+        className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition flex items-center"
+        // onClick={() => {
+        //   setSelectedItem(itemName);
+        //   setShowPopup(true);
+        // }}
+      >
+        {/* Left side: Name & description */}
+        <div className="flex-1 p-3 sm:p-4 text-left">
+          <h3 className="text-base sm:text-lg md:text-xl font-bold text-orange-600 leading-tight">
+            {itemName}
+          </h3>
+          <p className="text-gray-700 text-xs sm:text-sm md:text-base line-clamp-2 sm:line-clamp-3">
+            {menu[itemName].desc}
+          </p>
+          <p className="mt-1 sm:mt-2 font-semibold text-black text-sm sm:text-base">
+            {menu[itemName].price}
+          </p>
+        </div>
+
+        {/* Right side: Image */}
+        <div className="flex-shrink-0 p-2 sm:p-4">
+          <img
+            className="w-20 h-20 sm:w-32 sm:h-32 object-cover rounded-md"
+            src={menu[itemName].img}
+            alt={itemName}
+          />
         </div>
       </div>
+    ))}
+  </div>
+</div>
 
       {/* About Section */}
       <div className="max-w-4xl px-6 py-10 text-center">
@@ -169,6 +180,9 @@ const Home = () => {
           options={menu[selectedItem]}
           onClose={() => setShowPopup(false)}
         />
+      )}
+      {showCallPopup && (
+        <CallPopup onClose={() => setShowCallPopup(false)}/>
       )}
     </div>
   );
